@@ -1,5 +1,16 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MODULE GPU_DECONVOLVE_SINGLE_STEPPED
+
+// check boost 1.5x and cuda version 7.0 due to bug in c++11 compilation mode
+// http://stackoverflow.com/questions/31940457/make-nvcc-output-traces-on-compile-error
+//#if defined(__CUDA_ARCH__) && (__CUDA_ARCH__/10)==70 \
+  && __cplusplus > 199711L \
+  && (BOOST_VERSION / 100000)==1 && ((BOOST_VERSION / 100) % 1000)==5
+
+#if __cplusplus > 199711L
+ #include <boost/utility/result_of.hpp>
+#endif
+
 #include "boost/test/unit_test.hpp"
 #include <functional>
 #include <algorithm>
