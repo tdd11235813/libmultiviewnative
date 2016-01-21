@@ -1,5 +1,6 @@
 #ifndef _CPU_KERNELS_HPP_
 #define _CPU_KERNELS_HPP_
+
 #include <cmath>
 
 #ifdef _OPENMP  // macro that is defined if gcc is called with -fopenmp flag
